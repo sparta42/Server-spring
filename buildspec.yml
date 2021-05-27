@@ -1,0 +1,20 @@
+version: 0.2
+phases:
+  build:
+    commands:
+      - echo Build Starting on `date`
+      - chmod +x ./zenly/gradlew
+      - ./zenly/gradlew build
+  post_build:
+    commands:
+      - echo $(basename ./zenly/build/libs/*.jar)
+      - pwd
+      - cd ./zenly
+      - ls
+artifacts:
+  files:
+    - ./zenly/build/libs/*.jar
+  discard-paths: yes
+cache:
+  paths:
+    - '/root/.gradle/caches/**/*'
