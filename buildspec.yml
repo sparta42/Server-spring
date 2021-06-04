@@ -3,17 +3,15 @@ phases:
   build:
     commands:
       - echo Build Starting on `date`
-      - chmod +x ./zenly/gradlew
-      - ./zenly/gradlew build
+      - chmod +x ./gradlew
+      - ./gradlew build
   post_build:
     commands:
       - echo $(basename ./zenly/build/libs/*.jar)
       - pwd
-      - cd ./zenly
-      - ls
 artifacts:
   files:
-    - ./zenly/build/libs/*.jar
+    - ./build/libs/*.jar
   discard-paths: yes
 cache:
   paths:
